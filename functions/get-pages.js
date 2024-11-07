@@ -22,7 +22,12 @@ exports.handler = async () => {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        console.log("--- built home page ---");
+        return response.products.edges;
+      });
 
     if (result.errors) {
       console.log({ errors: result.errors });
