@@ -12,3 +12,9 @@ netlify deploy
 
 4 - Si todo va bien, lo subo a producción
 netlify deploy --prod
+
+# Artículos interesantes
+
+https://www.netlify.com/blog/deploy-an-astro-site-with-forms-serverless-functions-and-redirects/
+https://www.netlify.com/blog/2021/07/23/build-a-modern-shopping-site-with-astro-and-serverless-functions/
+https://docs.directus.io/guides/headless-cms/trigger-static-builds/netlify.html#triggering-static-site-builds-with-netlify
