@@ -17,15 +17,12 @@ exports.handler = async () => {
     console.log("--------------------------------");
     console.log("Retrieving pages...");
     console.log("--------------------------------");
-    const result = await fetch(
-      process.env.DIRECTUS_API_ENDPOINT + "/items/pages",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    ).then((res) => res.json());
+    const result = await fetch("http://167.71.63.233:8055/items/pages", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
 
     if (result.errors) {
       console.log({ errors: result.errors });
