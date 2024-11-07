@@ -1,0 +1,27 @@
+---
+let products = await fetch(
+  `${import.meta.env.NETLIFY_URL}/.netlify/functions/get-pages`
+).then((res) => res.json());
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prueba</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/style/global.css" />
+  </head>
+  <body>
+    <main>
+      <ul class="product-grid">
+        {
+          products.map((p) => {
+            return "<li>" + p.title + "</li>";
+          })
+        }
+      </ul>
+    </main>
+  </body>
+</html>
