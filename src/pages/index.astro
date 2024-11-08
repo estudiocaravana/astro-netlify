@@ -1,5 +1,5 @@
 ---
-let products = await fetch(
+let pages = await fetch(
   `${import.meta.env.NETLIFY_URL}/.netlify/functions/get-pages`
 ).then((res) => {
   let resultado = res.json();
@@ -13,14 +13,13 @@ let products = await fetch(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Prueba</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="/style/global.css" />
   </head>
   <body>
     <main>
+      <p>Páginas en Directus:</p>
       <ul class="product-grid">
         {
-          products.map((p) => {
+          pages.map((p) => {
             return "<li>" + p.title + "</li>";
           })
         }
