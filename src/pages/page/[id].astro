@@ -1,0 +1,33 @@
+---
+export async function getStaticPaths() {
+  let pages = await fetch(
+    `${import.meta.env.NETLIFY_URL}/.netlify/functions/get-pages`
+  ).then((res) => res.json());
+
+  return pages.map((p, i) => {
+    return {
+      params: { id: p.id.toString() },
+      props: { page: p },
+    };
+  });
+}
+
+const { page } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prueba {page.title}</title>
+  </head>
+  <body>
+    <div class="page-page">
+      <article>
+        {page.title}
+        {page.content}
+      </article>
+    </div>
+  </body>
+</html>

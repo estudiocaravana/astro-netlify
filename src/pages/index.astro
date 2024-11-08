@@ -19,9 +19,11 @@ let pages = await fetch(
       <p>Páginas en Directus:</p>
       <ul class="product-grid">
         {
-          pages.map((p) => {
-            return "<li>" + p.title + "</li>";
-          })
+          pages.map((p) => (
+            <li>
+              <a href={`/page/${p.id}`}>{p.title}</a>
+            </li>
+          ))
         }
       </ul>
     </main>
